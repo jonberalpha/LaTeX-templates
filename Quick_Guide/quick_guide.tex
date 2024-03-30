@@ -1,0 +1,59 @@
+% Preamble
+\documentclass[12pt, letterpaper]{article}
+
+% Umlaute-Encoding und Standardschrift einstellen
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Title
+\title{Quick Guide}
+\author{Jonas Berger}
+\date{30.09.2021}
+
+\begin{document}
+
+\maketitle
+
+First document. This is an example of \LaTeX{} 
+% comment
+\\
+Some of the \textbf{greatest}
+\\
+discoveries in \underline{science}
+\\
+were made by \textbf{\textit{accident}}.
+
+% 2 empty lines is new paragraph
+\emph{discoveries}
+\\
+\textit{Some of the greatest \emph{discoveries}}
+\\
+\textbf{Some of the greatest \emph{discoveries}}
+
+
+% standard table
+Standard Table:
+\begin{center}
+\begin{tabular}{c c c} % 3 colums centered (r is right, l is left
+	cell1&cell2&cell3\\
+	cell4&cell5&cell6\\
+	cell7&cell8&cell9
+\end{tabular}
+\end{center}
+
+% table with borders
+Table with Borders:
+\begin{center}
+\begin{tabular}{ |c|c|c| } % 3 colums centered (r is right, l is left
+	\hline
+	cell1&cell2&cell3\\
+	cell4&cell5&cell6\\
+	cell7&cell8&cell9\\
+	\hline
+\end{tabular}
+\end{center}
+
+\end{document}
+

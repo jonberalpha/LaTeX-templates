@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{tikz}
+\begin{document}
+	\begin{tikzpicture}
+		\draw [thin, gray, ->] (0,-1) -- (0,2)      % draw y-axis line
+		node [above, black] {$y$};              % add label for y-axis
+		
+		\draw [thin, gray, ->] (-1,0) -- (2,0)      % draw x-axis line
+		node [right, black] {$x$};              % add label for x-axis
+		
+		\draw [draw=red,ultra thick] (0,1) -- (1,0);% draw the graph
+		
+		\node [left] at (0,1) {$1$};                % label y-intercept
+		\node [below] at (1,0) {$1$};               % label x-intercept
+	\end{tikzpicture}
+\end{document}

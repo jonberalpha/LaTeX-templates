@@ -1,0 +1,25 @@
+\documentclass{article}
+
+\input{embed_video.tex}
+
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lipsum}
+
+\begin{document}
+    \section{autoplay}\label{sec:autoplay}
+    \lipsum[1]
+    \begin{center}
+        \embedvideo*{\includegraphics[width=\textwidth]{../Breadboard_Aufbau}}{../Breadboard_Aufbau.mp4}
+    \end{center}
+
+    \section{play on click}\label{sec:play-on-click}
+	
+    \lipsum[2]
+	
+    \begin{center}
+        \embedvideo{\includegraphics[width=\textwidth]{../Breadboard_Aufbau}}{../Breadboard_Aufbau.mp4}
+    \end{center}
+
+    \lipsum[3]
+\end{document}

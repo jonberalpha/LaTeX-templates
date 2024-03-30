@@ -1,0 +1,50 @@
+\documentclass[parskip=half, a5paper, landscape]{scrartcl}
+\pagestyle{empty}
+\usepackage{selinput}
+\SelectInputMappings{adieresis={ä},  germandbls={ß}}
+\usepackage[ngerman]{babel}
+\usepackage[margin=0.5cm]{geometry}
+\usepackage{xcolor}
+    \pagecolor{yellow!40}
+\usepackage{hyperref}
+\begin{document}
+\begin{Form}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={red},borderstyle=U}
+\begin{tabular}{|lcr|}\hline
+\textbf{Ausfüllbogen} & &  \\[1ex] \hline
+& & \\
+\TextField[name=Vorname, width=5cm,value={Martina}]{Vorname:}
+& 
+&  \TextField[name=Nachname,width=5cm,backgroundcolor=lightgray]{Nachname:}   \\ 
+& & \\
+
+\ChoiceMenu[radio, radiosymbol=6, width=0.5cm, name=Geschlecht]{\textbf{Geschlecht:}}
+{männlich=m,weiblich=w} 
+&
+&\ChoiceMenu[combo, name=Land]{Land:}%
+{Deutschland,Österreich,Schweiz} \\ 
+& & \\
+
+\TextField[name=Strasse,width=5cm,value={}]{Straße:}
+& \TextField[name=PLZ,width=2cm,value={}]{PLZ:}
+& \TextField[name=Ort,width=5cm,value={}]{Ort:} \\ 
+& & \\
+
+\TextField[name=Geburt,width=2.0cm,value={TT/MM/JJJJ}]{Geburtsdatum:} & & \\ 
+& & \\
+\CheckBox[width=0.5cm, name=Geld]{Münzen gezählt?}
+& \CheckBox[width=0.5cm, name=Katze]{Katze gefüttert?}
+& \CheckBox[width=0.5cm, name=Pflanze]{Pflanzen gegossen?} \\
+
+& & \\ \hline
+\end{tabular} \\[1ex]
+\PushButton[name=calc,onclick={app.alert("Hier bitte   N I C H T     draufklicken!")}]%
+{Hier bitte nicht draufklicken}
+
+\CheckBox[name=Katze]{\textbf{Checkbox funktioniert hier ohne width}}
+
+\textbf{Notizen:}\\[0.75ex]
+\TextField[multiline, name=Notizen,width=0.9\textwidth,  height=3.25cm,borderstyle=D,value={}, backgroundcolor={0.95 0.95 0.95}]{}
+
+\end{Form}
+\end{document}

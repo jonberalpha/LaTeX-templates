@@ -1,0 +1,49 @@
+cropping.tex
+\documentclass{article}
+\usepackage{pstricks}
+\usepackage{graphicx}
+
+
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{pspicture}
+
+% Set the border to 0pt if you don't like paddings.
+\PreviewBorder=1cm\relax
+
+
+% If you need 4 colored paddings, uncomment the following.
+% But  remmember that \PreviewBorder=0 will ignore it.
+%\pagecolor{yellow!10}
+
+\newsavebox\IBox
+\savebox\IBox{\includegraphics[width=\linewidth]{Leibniz.jpg}}
+
+\def\N{15}% columns
+\def\M{15}% rows
+
+\psset
+{
+	xunit=\dimexpr\wd\IBox/\N\relax,
+	yunit=\dimexpr\ht\IBox/\M\relax
+}
+
+
+\begin{document}
+	% First page for navigation
+	\begin{pspicture}(\N,\M)
+		\rput[bl](0,0){\usebox\IBox}
+		\psgrid[style=gridstyle]
+	\end{pspicture}
+	
+	% Second page for the final output
+	% Cropping coordinates
+	\def\Left{6}
+	\def\Bottom{8}
+	\def\Right{10}
+	\def\Top{13}
+	\begin{pspicture}(\Left,\Bottom)(\Right,\Top)
+		\begin{psclip}{\psframe[linestyle=none](\Left,\Bottom)(\Right,\Top)}
+			\rput[bl](0,0){\usebox\IBox}
+		\end{psclip}
+	\end{pspicture}
+\end{document}

@@ -1,0 +1,321 @@
+\documentclass[12pt,a4paper]{article}
+
+% include standard packages:
+\usepackage{graphicx, epstopdf} % eps... for e.g. MATLAB-Grafiken im .eps-format
+\graphicspath{{./img/}} % default folder for images
+
+\usepackage{xcolor}
+\usepackage[hyphens]{url} % fix too long urls in bibliography
+\usepackage{hyperref} % [colorlinks,linkcolor=black,citecolor=black,urlcolor=black] % customize references
+% uncomment the next lines to avoid red boarder around hyperlinks
+% simple:
+%\hypersetup{
+%    colorlinks,
+%    citecolor=black,
+%    filecolor=black,
+%    linkcolor=black,
+%    urlcolor=black
+%}
+% advanced:
+%\hypersetup{
+%    pdftitle    = \mytitle,
+%    pdfsubject  = \worktype,
+%    pdfauthor   = \myname,
+%    pdfcreator  = {pdflatex},
+%    bookmarksnumbered = true,
+%    colorlinks = true,
+%    linkcolor = black,
+%    citecolor = blue,
+%    urlcolor = blue
+%}
+
+\usepackage{amsmath, amsfonts, amssymb, amsthm} % enhanced math writing
+\usepackage{tikz-timing} % Timing, Square-Symbols
+\usepackage[clock, weather, misc, alpine, geometry, electronic]{ifsym} % \showclock; \Sun; \Letter; \Hut; \FallingEdge
+\usepackage{wasysym,gensymb,trfsigns} % Hantelsymb., gensymb for celsius ohm, usw.
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in]{geometry} % MSWord-Format
+\setlength{\parindent}{0em} % keine Einrueckungen, sonst \noindent
+
+\usepackage{listings, lstautogobble} % adding code listing support
+\newcommand*\listingspath[1]{\lstset{inputpath=#1}}
+\listingspath{./codes/} % default folder for codes
+
+\usepackage{float} % improved inteferce of floating objects (e.g. \floatplacement{figure}{H})
+\usepackage{sectsty} % apply different fonts for a section
+\usepackage{eso-pic} % backround image e.g.
+%\usepackage{ulem} % \uuline = Doppelt unterstreichen, do not use with bibliography
+\usepackage{tikz} % drawing things
+\usepackage{pgfplots} % plots, graphs, etc.
+
+% customize Header and Footer
+\usepackage{fancyhdr, lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Standard Template}
+\rhead{Jonas Berger}
+\lfoot{\today}
+\rfoot{Seite \thepage \space von \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Umlaute-Encoding und Standardschrift einstellen:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[naustrian]{babel} % ngerman for Januar in today
+\usepackage{lmodern} % avoid bitmap letters
+% use standard font:
+%\renewcommand\rmdefault{lmr}
+%\renewcommand\sfdefault{lmss}
+%\renewcommand\ttdefault{lmtt}
+
+% Citation
+\usepackage[autostyle=false, style=english]{csquotes}
+\MakeOuterQuote{"}
+%\usepackage[backend=bibtex, autolang=hyphen, style=authoryear]{biblatex}
+%\addbibresource{bibliography.bib}
+
+% uncomment the following 2 lines to use Arial
+%\usepackage{helvet}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% Rename listings
+%\renewcommand{\contentsname}{Inhaltsverzeichnis}
+\renewcommand{\lstlistlistingname}{Codelisting}
+%\renewcommand{\listfigurename}{Abbildungsverzeichnis}
+%\renewcommand{\listtablename}{Tabellenverzeichnis}
+
+% Add listoffigures and codelistings in tableofcontents
+\usepackage[nottoc]{tocbibind} %,numbib
+\renewcommand{\lstlistoflistings}{\begingroup
+	\tocfile{\lstlistlistingname}{lol}
+\endgroup}
+
+% Code insertion
+\usepackage{matlab-prettifier} % for MATLAB
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\usepackage{accsupp}
+\newcommand{\noncopynumber}[1]{%
+	\BeginAccSupp{method=escape,ActualText={}}%
+	#1%
+	\EndAccSupp{}%
+}
+
+\lstdefinestyle{customC}{
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}; should come as last argument
+  basicstyle=\scriptsize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  columns=fullflexible,
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  firstnumber=1,                % start line enumeration with line 1
+  frame=single,	                   % adds a frame around the code
+  identifierstyle=\ttfamily,
+  inputencoding=utf8,
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=C,                 % the language of the code
+  literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {ã}{{\~a}}1 {ẽ}{{\~e}}1 {ĩ}{{\~i}}1 {õ}{{\~o}}1 {ũ}{{\~u}}1
+  {Ã}{{\~A}}1 {Ẽ}{{\~E}}1 {Ĩ}{{\~I}}1 {Õ}{{\~O}}1 {Ũ}{{\~U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1,
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  %numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  numberstyle=\tiny\noncopynumber,
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  autogobble=true            % autoalign text
+}
+
+\lstdefinestyle{customMATLAB}{
+	style=Matlab-editor,
+	basicstyle=\scriptsize,
+	captionpos = b,
+	frame = single,
+	numbers = left
+}
+
+\lstset{style=customC} % use customC-style as source-code highlighter for code; for e.g. MATLAB set style = customMATLAB
+
+% Title page configuration
+\title{Template}
+\author{Name}
+\date{Published: \today \\ Updated: \today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\pagebreak
+
+\renewcommand{\abstractname}{Abstract} % if german-babel used change Abstractname here
+\begin{abstract} % make Abstract
+	\noindent
+	Einleitung des Dokuments
+\end{abstract}
+
+\tableofcontents
+\pagebreak
+
+\section{Einleitung}
+
+\begin{itemize}
+	\item Kurze Einleitung zur Thema des Experimentes,
+	\item Ziele des Experimentes.
+	\item Beispiel Griechischer Buchstabe: $\vartheta$
+\end{itemize}
+
+\section{Theoretischer Hintergrund}
+Hier müssen Sie ausfürlich darüber schreiben, alle 
+Themen und Konzepte die Sie brauchen, um das 
+Experiment verstehen und durchführen zu können.
+
+\section{Experiment}
+\label{sec:Experiment}
+
+	\subsection{Beschreibung des Experimentes}
+	Hier müssen Sie Ihr Experiment so detailliert beschreiben, 
+	dass die Person, die Ihr Protokoll liest, und nicht bei Ihnen 
+	das Experiment durchgeführt hat, genau das selbe 
+	machen kann wie Sie, und die selbe Ergebnisse bekommen 
+	kann, die Sie hier berichten.
+
+	\subsection{Berechnungen}
+	Bitte Ihre Berechnungen nie händisch hinzufügen!
+	
+	\begin{equation}\label{eq:1}
+		x=-\frac{p}{2}\pm\sqrt{\left(\frac{p}{2}\right)^2-q}
+	\end{equation}
+
+	Hier wird auf die Formel  \ref{eq:1} verwiesen. %eqref{} ... (1)
+
+	\subsection{Simulationen}
+	Alles was Sie im Labor gemessen haben, müssen Sie 
+	simulieren. Aber bitte nicht nur Abbildungen: beschreiben 
+	Sie auch, was Sie simuliert haben.
+		
+	\pagebreak
+
+	\subsection{Messungen / Ergebnisse}
+	Fügen Sie Ihre Ergebnisse hier. Aber bitte nicht nur Abbildungen: Sie müssen auch beschreiben, wie Sie diese Ergebnisse 
+	bekommen haben.
+	
+	Bitte nummerieren Sie alle Abbildungen und Tabellen, und schreiben Sie eine kurze Beschreibung, was da zu sehen ist. Sie müssen 
+	irgendwann im Haupttext auf alle Ihre Abbildungen und Tabellen verweisen, wo Sie mehr Details über die beschreiben, bzw. 
+	welche Relevanz für das Experiment sie haben.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=3in]{signale_math_methoden.png}
+		\caption{Schreiben Sie eine kurze Beschreibung der Abbildung.}
+		\label{figure:1}
+	\end{figure}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			a&b  &c  &d  &e     \\
+			\hline
+			\hline
+			1&2  &3  &4  &5     \\
+			6&7  &8  & 9 &10    \\
+			11&12  &13  &14  &15\\
+			\hline              
+		\end{tabular}
+	\caption{Schreiben Sie eine kurze Beschreibung der Tabelle.}
+	\label{table:1}
+	\end{table}
+	
+	
+	Hier wird auf Abbildung \ref{figure:1} verwiesen. Und hier ist ein Verweis auf Tabelle \ref{table:1}.
+	
+		%\subsubsection{Subsubsection}
+
+  		
+\section{Example Code}
+	%Example Code:
+	%\begin{lstlisting}[caption={example Listing},label={lst:1}]
+	%	#include <stm32l432xx.h>
+	%	
+	%	int main(void)
+	%	{
+	%		// Test
+	%		printf("Hallo %d\n", 1);
+	%		while(1);
+	%	}
+	%\end{lstlisting}
+	
+	% import code-file: 
+	\lstinputlisting[caption={Code Listing}, label = {lst:1}]{main.c}
+	% only code snippet [firstline=300,lastline=500] or [linerange={1-4,7-9}]
+	 	
+	Reference to Listening \ref{lst:1}
+
+% add eps image e.g. from MATLAB
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{Project_Mockup}
+	\caption{Project Mockup}
+	\label{figure:2}
+\end{figure}
+
+\pagebreak
+
+\section{Spezielle Symbole}
+Simple Low-High-Low \texttiming{[-,timing/slope=0]LHL} or Triangle \texttiming{[-,timing/slope=1]LHLL} with tikz \\
+Or with ifsym \FallingEdge \\
+also Temp.Symbole with gensymb \celsius \space \ohm \\
+Hantelsymbol \laplace
+
+\section{Diskussion}
+Hier schreiben Sie, ob die Ergebnisse, die Sie bekommen haben, zu erwarten waren, vergleichen Sie die Berechnungen mit der 
+Simulationen und Messungen, wenn sie nicht übereinstimmen, warum, usw. Diese muss nicht unbedingt eine eigene Abschnitt sein, 
+das kann auch in Abschnitt \ref{sec:Experiment} hineinfließ en.
+
+\section{Zusammenfassung}
+Wenn eine Person nur die Einleitung und die Zusammenfassung liest, soll sie einen groben Einblick bekommen, was Sie gemacht haben, 
+welche Ergebnisse Sie bekommen haben, und ob sie zu erwarten waren oder nicht, und warum.
+
+\section*{Plagiat} % no Number
+Plagiat ist die Arbeit von anderen als eigene Arbeit einzureichen, und ist streng verboten. Wenn ein Protokoll oder ein Teil davon 
+identisch oder offensichtlich sehr ähnlich zu dem Protokoll anderer Gruppe ist, gilt als Plagiat. In dem Fall bekommen beide Parteien 
+keine Punkte dafür, und es gibt keine Möglichkeit, dieses Protokoll wieder einzureichen oder zu verbessern.
+
+\appendix % start Anhangkapitel
+
+\section{Anhang 1}
+
+\section{Anhang 2}
+
+\listoffigures
+\listoftables
+\lstlistoflistings
+%\pagebreak
+%\printbibliography
+\end{document}

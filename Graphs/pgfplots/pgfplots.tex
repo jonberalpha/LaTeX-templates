@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\begin{document}
+	\begin{tikzpicture}
+		\begin{axis}[
+			xmin=-1, xmax=2,
+			ymin=-1, ymax=2,
+			axis lines=center,
+			axis on top=true,
+			domain=0:1,
+			]
+			
+			\addplot [mark=none,draw=red,ultra thick] {1-x};
+		\end{axis}
+	\end{tikzpicture}
+\end{document}

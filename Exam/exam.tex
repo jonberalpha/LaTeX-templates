@@ -1,0 +1,207 @@
+\documentclass[addpoints,a4paper,12pt]{exam} %answers
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+
+%Eindeutschen der documentclass exam
+\pointpoints{Punkt}{Punkte}
+\bonuspointpoints{Bonuspunkt}{Bonuspunkte}\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\enspace}
+\chqword{Frage}
+\chpgword{Seite}
+\chpword{Punkte}
+\chbpword{Bonus Punkte}
+\chsword{Erreicht}
+\chtword{Gesamt}
+\hpword{Punkte:} % Punktetabelle horizontal
+\hsword{Ergebnis:}
+\hqword{Aufgabe:}
+\htword{Summe:}
+\vpword{Punkte:} % Punktetabelle vertikal
+\vsword{Ergebnis:}
+\vqword{Aufgabe:}
+\vtword{Summe:}
+
+\pointsinrightmargin % Punkte werden rechts angezeigt
+
+\begin{document}
+	%Kopf und Fußzeile
+	\newcommand{\dozent}{Jonas Berger}
+	\newcommand{\fach}{Test-Template 2022}
+	\pagestyle{headandfoot}
+	\firstpageheadrule
+	\runningheadrule
+	\firstpageheader{}{}{\dozent \\ \fach}
+	\runningheader{}{}{\dozent \\ \fach}
+	\firstpagefooter{}{}{\thepage\,/\,\numpages}
+	\runningfooter{}{}{\thepage\,/\,\numpages}
+
+	%Infobox
+	\begin{center}
+		\fbox{\fbox{\parbox{5.5in}{\centering
+		Beantworten Sie die Fragen in den dafür vorgesehenen Feldern. Wenn Sie keinen Platz mehr für eine Antwort haben, fahren Sie auf der Rückseite fort.}}}
+	\end{center}
+
+	%Name und Matrikelnummer
+	\makebox[\textwidth]{}
+	\vspace{2mm}
+	\makebox[\textwidth]{Vor- und Nachname:\enspace\hrulefill}
+	\vspace{2mm}
+	\makebox[\textwidth]{Matrikelnummer:\enspace\hrulefill}
+	
+	\vspace{0.1cm}
+
+
+	\begin{questions}
+		%% Simple Fragen
+		\question[10]
+		Warum gibt es Pandas?
+		\question
+		Sind rote Pandas wirklich die besten Pandas?
+		\question Berechne $\displaystyle\int_0^1 x^2 \, dx$.
+		
+		%% Fragen mit parts/subparts
+		\question
+		Was wäre wenn es keine Pandas gäbe?
+		\begin{parts}
+			\part
+			Beschreibe den Effekt auf die Umwelt.
+			\part
+			Beschreibe deen Effekt auf meine Gefühle.
+		\end{parts}
+		
+			\question
+		\begin{parts}
+			\part
+			Definiere Pandas
+			\part
+			Beschreibe Pandas aus unterschiedlichen Regionen
+			\begin{subparts}
+				\subpart 
+				Asien
+				\subpart 
+				Amerika
+			\end{subparts}
+		\end{parts}
+		
+		%% Fragen mit Punkten
+		%% Optionen für Punktevergabe
+		%\pointsinmargin
+		%\pointsinrightmargin
+		%\pointstwosided
+		%\pointstwosidedreversed
+		\question[10]
+		Warum gibt es Pandas?
+		
+		\question[10]
+		Was wäre wenn es keine Pandas gäbe?
+		\begin{parts}
+			\part[5]
+			Beschreibe den Effekt auf die Umwelt.
+			\part[5]
+			Beschreibe den Effekt auf meine Gefühle.
+		\end{parts}
+	
+		\question
+		\begin{parts}
+			\part[10]
+			Definiere Pandas
+			\part
+			Beschreibe Pandas aus unterschiedlichen Regionen
+			\begin{subparts}
+				\subpart[10]
+				Asien
+				\subpart[10]
+				Amerika
+			\end{subparts}
+		\end{parts}
+		
+		%% Multiple Choice
+		\question
+		Welche Farbe haben Pandas
+		%\begin{choices}
+		%\begin{oneparchoices}
+		\begin{checkboxes}
+			%\begin{oneparcheckboxes}
+			\CorrectChoice Rot
+			\choice Blau
+			\choice Gelb
+			\choice Grün
+			\CorrectChoice Schwarz
+			%\end{choices}
+			%\end{oneparchoices}
+		\end{checkboxes}
+		%\end{oneparcheckboxes}
+		
+		%% Lückentext
+		\question \fillin[Rot][3cm] ist die Farbe meines Lieblingspandas.
+		
+		%% Wahr-Falsch Fragen
+		\newcommand{\tf}[1][{}]{%
+		\fillin[#1][0.25in]%
+		}
+		\question \tf[T] Pandas sind toll.
+		\question \tf[F] Meine Lieblingsfarbe ist blau.
+		
+		%% Kurze Fragen und Antworten
+		\question[2]
+		Wer hat an der Uhr gedreht?
+		\answerline[Ich]
+		Ist es wirklich schon so spät?
+		\answerline[Ja]
+		
+		
+		%% Fragen mit viel Platz für Antworten
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\vspace{2cm}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\makeemptybox{2cm}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\fillwithlines{2cm}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\fillwithdottedlines{2cm}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte hier etwas schönen malen.
+		\smallskip
+		%\fillwithgrid{2cm}
+		\begin{solutionorgrid}[2cm]
+			Das ist der Weg
+		\end{solutionorgrid}
+		
+		%% Fragen mit viel Platz für Antworten und Lösungen
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\begin{solution}[2cm]
+			Das ist die Antwort
+		\end{solution}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\begin{solutionorbox}[2cm]
+			Das ist die Antwort
+		\end{solutionorbox}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\begin{solutionorlines}[2cm]
+			Das ist die Antwort
+		\end{solutionorlines}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte beantwortet diese Frage richtig. Was ist die Lösung?
+		\begin{solutionordottedlines}[2cm]
+			Das ist die Antwort
+		\end{solutionordottedlines}
+		
+		\question Das ist eine wirklich lange und komplizierte Textaufgabe. Bitte hier etwas schönen malen.
+		\smallskip
+		\begin{solutionorgrid}[2cm]
+			Das ist die Antwort
+		\end{solutionorgrid}17. Tutorial SS 2021
+		
+		\newpage
+		\begin{center}
+			\gradetable[v][questions]
+		\end{center}
+		
+	
+	\end{questions}
+\end{document}

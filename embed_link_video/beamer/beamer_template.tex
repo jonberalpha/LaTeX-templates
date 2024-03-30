@@ -1,0 +1,34 @@
+% Embed
+\documentclass{beamer}
+\usepackage{multimedia}
+%\usepackage{movie15}
+
+%\begin{document}
+%    \frame{
+%        \frametitle{Embedded Video}  
+%        \begin{center}
+%            \movie{\includegraphics[width=\textwidth]{../Breadboard_Aufbau}}{../Breadboard_Aufbau.mp4}
+            %\includemovie[poster,mouse=true]{8cm}{6cm}{../Breadboard_Aufbau.mp4}
+%        \end{center}
+%    }
+%\end{document}
+
+% External
+
+\begin{document}
+    \frame{
+        \frametitle{Video Slide} 
+        \begin{center}
+            \href{run:../Breadboard_Aufbau.mp4}{\includegraphics[width=\textwidth]{../Breadboard_Aufbau}}
+        \end{center}
+    }
+\end{document}
+
+% Open document
+
+%\begin{document}
+%    \frame{
+%        \frametitle{Document Slide} 
+%        \href{run:/path/to/my/document}{Link to an external document.}
+%    }
+%\end{document}

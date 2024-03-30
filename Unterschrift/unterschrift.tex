@@ -1,0 +1,47 @@
+\documentclass[a4paper,11pt,oneside,listof=totoc,index=totoc,bibligraphy=totoc,markuppercase,headlines=2.2]{scrbook}[2003/01/01] 
+\renewcommand{\chapterpagestyle}{scrheadings} 
+\usepackage[a4paper, inner=2.4cm, outer=2.4cm, top=2.5cm, bottom=2.8cm, bindingoffset=1cm]{geometry} %hiermit kann die Berandung des Dokumentes eingestellt werden 
+\usepackage[ngerman]{babel} %Verwendung der neuen deutschen Rechtschreibung. Dadurch werden Trennungsregeln angepasst und automatisch erzeugte Überschriften ins Deutsche übersetzt (z.B. "Kapitel" statt "Chapter"). babel ist das Sprachpaket. 
+\usepackage[T1]{fontenc} %Auswahl des Zeichensatzes 
+\usepackage[latin9]{inputenc}%Verwendung eines Zeichensatzes, in dem auch Umlaute wie ä, ö und ü enthalten sind 
+\usepackage{lmodern} %skalierbare Schriftfamilie "Latin Modern" anstelle der defaultmäßigen bitmapped Schriftfamilien "Computer Modern", möglicherweise führt auch nur diese Eingabe zu Umlauten wie ä,ö und ü 
+\usepackage{textcomp} %Zusätzliche Symbolzeichen 
+%\usepackage{parskip} %Verhindert die Einrückung von Zeilen bei Beginn eines Paragraphen und macht statt dessen einen kleinen Absatz 
+\usepackage{color} 
+\usepackage{lscape} 
+\usepackage{graphicx} 
+\usepackage[onehalfspacing]{setspace}%1,5-facher Zeilenabstand 
+%\renewcommand{\baselinestretch}{1.25}\normalsize 
+
+\usepackage{tabularx}
+\usepackage{caption}
+
+\usepackage{amsmath} 
+\usepackage[section]{placeins} 
+\usepackage{units} 
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{array} 
+\usepackage{longtable} 
+\usepackage{booktabs} 
+\usepackage{ltxtable} 
+\usepackage[printonlyused]{acronym} 
+\usepackage{hyperref} %%% IMMER ALS LETZTES LADEN!!!! (Außnahme: glossaries)
+
+\begin{document} 
+
+\captionsetup{justification=raggedright,singlelinecheck=false} % justified, centering
+
+\begin{figure}[H]
+	\vspace{5mm}
+	\begin{minipage}{5cm}
+		\includegraphics[width=\textwidth]{sig.png}
+		\hrule
+	\end{minipage}
+	\caption*{Name, Datum}
+\end{figure}
+	
+
+	
+\end{document}
